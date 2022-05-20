@@ -20,7 +20,7 @@ const changeHandler = (e) => {
 }
 
 const checkhandler = (e) => {
-  if(checkvalue == false){
+  if(checkvalue === false){
       setcheckvalue(true)
       pass.current.type = "text"
   }else{
@@ -41,10 +41,10 @@ const submitHandler = async (e) => {
   }
   let result = await axios(option)
   console.log(result.data)
-  if(result.data == "login Successfull"){
+  if(result.data === "login Successfull"){
     setaxiosData(result.data)
     nav("/logedin")
-  }else if(result.data == "Incorrect Password"){
+  }else if(result.data === "Incorrect Password"){
     setaxiosData(result.data)
   }else{
     setaxiosData(result.data)

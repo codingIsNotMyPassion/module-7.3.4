@@ -14,7 +14,7 @@ function Emailverification() {
   })
     const changeHandler = (e) => {
         e.preventDefault()
-        if(e.target.name == "email"){
+        if(e.target.name === "email"){
           setbtnvalue("Send Code")
           setlist({...list,[e.target.name]:e.target.value})
         }else{
@@ -25,7 +25,7 @@ function Emailverification() {
 
       const submiHandler = async (e) => {
         e.preventDefault()
-        if(list.code == ""){
+        if(list.code === ""){
           let options = {
             method:"post",
             url:"https://zenbackendtask-day-44.herokuapp.com/emailverification",
@@ -40,7 +40,7 @@ function Emailverification() {
             setmsg("Internal Server Problem Try Again later")
           }else if(axiosResult.data.message){
             setmsg("Check You Mail for OTP and even check in spam")
-          }else if(axiosResult.data == "Enter Proper Mail Id"){
+          }else if(axiosResult.data === "Enter Proper Mail Id"){
             setmsg("Enter Proper Mail Id")
           }
           setTimeout(() => {
@@ -58,9 +58,9 @@ function Emailverification() {
           }
           let axiosResult = await axios(options)
           console.log(axiosResult)
-          if(axiosResult.data == "Correct OTP"){
+          if(axiosResult.data === "Correct OTP"){
             nav("/forgotpassword")
-          }else if(axiosResult.data == "Incorrect Otp"){
+          }else if(axiosResult.data === "Incorrect Otp"){
             setmsg("Enter Proper OTP")
           }else{
             setmsg("Email does not Exists")

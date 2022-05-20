@@ -19,7 +19,7 @@ function Forgetpassword() {
   const submitHandler = async (e) => {
     e.preventDefault()
     let {password1,password2} = list
-    if(password1 == password2){
+    if(password1 === password2){
       let data = {
         email:list.email,
         password:list.password1
@@ -34,7 +34,7 @@ function Forgetpassword() {
       }
       let axiosresult = await axios(options)
       console.log(axiosresult.data.message)
-      if(axiosresult.data.message == "Password Updated"){
+      if(axiosresult.data.message === "Password Updated"){
         setmsg("Password Updated")
         nav("/login")
       }else{
@@ -55,7 +55,7 @@ function Forgetpassword() {
   }
 
   const checkhandler = () => {
-    if(checkvalue == false){
+    if(checkvalue === false){
       setcheckvalue(true)
       pass1.current.type = "text"
       pass2.current.type = "text"

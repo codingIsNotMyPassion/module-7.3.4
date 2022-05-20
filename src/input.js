@@ -1,6 +1,5 @@
 import React, { useRef, useState } from "react";
 import { Button, Form,} from "react-bootstrap"
-import {NavLink} from "react-router-dom"
 import axios from "axios"
 import Mainnavbar from "./mainnavbar";
 
@@ -19,7 +18,7 @@ function Input() {
     }
 
     const checkhandler = (e) => {
-        if(checkvalue == false){
+        if(checkvalue === false){
             setcheckvalue(true)
             pass.current.type = "text"
         }else{
